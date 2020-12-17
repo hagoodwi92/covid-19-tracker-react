@@ -6,11 +6,12 @@ class Covid extends React.Component{
     this.state = {
       error: null,
       isLoaded: false,
-      covids: []
+      covids: [],
+      states: []
     };
   }
 
-  makeApiCall = () => {
+  makeUSApiCall = () => {
     fetch(`https://api.covidtracking.com/v1/us/current.json`)
       .then(response => response.json())
       .then(
@@ -29,7 +30,7 @@ class Covid extends React.Component{
   }
 
   componentDidMount() {
-    this.makeApiCall()
+    this.makeUSApiCall()
   }
 
 render() {
@@ -45,12 +46,14 @@ render() {
         <ul>
           {covids.map((covid, index) =>
             <li key={index}>
-              <h3>United States New Positive Cases Today: {covid.positiveIncrease}</h3>
-              {/* <p>{headline.abstract}</p> */}
+              <h2>United States:</h2>
+              <h5><em>Last Updated: {covid.dateChecked}</em></h5>
+              <h4>New Positive Cases: {covid.positiveIncrease}</h4>
+              <h4>New Deaths: {covid.deathIncrease}</h4>
             </li>
           )}
         </ul>
-      </React.Fragment>
+    </React.Fragment>
     );
   }
   
