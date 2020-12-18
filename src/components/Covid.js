@@ -88,7 +88,6 @@ class Covid extends React.Component{
       error: null,
       isLoaded: false,
       covids: [],
-      states: []
     };
   }
 
@@ -100,7 +99,9 @@ class Covid extends React.Component{
           this.setState({
             isLoaded: true,
             covids: jsonifiedResponse
+            
           });
+          console.log(jsonifiedResponse.positive)
         })
         .catch((error) => {
           this.setState({
@@ -109,7 +110,6 @@ class Covid extends React.Component{
           });
         });
   }
-
 
   componentDidMount() {
     this.makeUSApiCall()
@@ -129,7 +129,7 @@ render() {
         <h2>United States:</h2>
           {covids.map((covid, index) =>
             <ul key={index}>
-              <h5><em>Last Updated: {covid.dateChecked}</em></h5>
+              <h5><em>Last Updated: {covid.dateChecked} = dateChecked</em></h5>
               <h4>New Positive Cases: {covid.positiveIncrease}</h4>
               <h4>New Deaths: {covid.deathIncrease}</h4>
               <h4>Deaths Per Minute: {covid.deathIncrease/1440}</h4>
