@@ -2,6 +2,7 @@ import React from 'react';
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
+let amount = 500;
 
 const options = {
   chart: {
@@ -38,7 +39,7 @@ tooltip: {
 series: [{
     name: 'Population',
     data: [
-        ['Alabama', 25],
+        ['Alabama', amount],
         ['Beijing', 20.8],
         ['Karachi', 14.9],
         ['Shenzhen', 13.7],
@@ -101,7 +102,6 @@ class Covid extends React.Component{
             covids: jsonifiedResponse
             
           });
-          console.log(jsonifiedResponse.positive)
         })
         .catch((error) => {
           this.setState({
@@ -122,21 +122,24 @@ render() {
   } else if (!isLoaded) {
     return <React.Fragment>Loading...</React.Fragment>;
   } else {
+    console.log(covids[0].date)
     return (
+      
       <React.Fragment>
         <h1>Covid 19 Tracker</h1>
         <ul>
         <h2>United States:</h2>
-          {covids.map((covid, index) =>
+        <h4>Deaths:</h4> {covids.date}          {/* {covids.map((covid, index) =>
             <ul key={index}>
               <h5><em>Last Updated: {covid.dateChecked} = dateChecked</em></h5>
               <h4>New Positive Cases: {covid.positiveIncrease}</h4>
               <h4>New Deaths: {covid.deathIncrease}</h4>
               <h4>Deaths Per Minute: {covid.deathIncrease/1440}</h4>
             </ul>
-          )}
+          )} */}
         </ul>
           <Chart/>
+          
     </React.Fragment>
     );
   }
