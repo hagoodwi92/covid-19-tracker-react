@@ -1,5 +1,7 @@
 # Covid-19 Tracker
-## Project's Purpose or Goal: Provide users with daily COVID outbreak reports. Stretch goals include displaying an outbreak map, as well as including other criteria to avoid states.
+## Project's Purpose or Goal: 
+* Provide users with daily COVID outbreak reports. 
+* Stretch goals include displaying an outbreak map, as well as including other criteria to avoid states.
 ### Goals
 * display current cases on page
 * display results on a chart and map
