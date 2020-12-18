@@ -8,10 +8,10 @@ const options = {
     type: 'column'
 },
 title: {
-    text: 'World\'s largest cities per 2017'
+    text: 'New Positive Cases Today'
 },
 subtitle: {
-    text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
+    text: 'Source: <a href="https://covidtracking.com/data/api">Covid Tracker API</a>'
 },
 xAxis: {
     type: 'category',
@@ -26,19 +26,19 @@ xAxis: {
 yAxis: {
     min: 0,
     title: {
-        text: 'Population (millions)'
+        text: 'New Positives Today'
     }
 },
 legend: {
     enabled: false
 },
 tooltip: {
-    pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
+    pointFormat: 'New Covid-19 Positives'
 },
 series: [{
     name: 'Population',
     data: [
-        ['Shanghai', 24.2],
+        ['Alabama', 25],
         ['Beijing', 20.8],
         ['Karachi', 14.9],
         ['Shenzhen', 13.7],
@@ -110,6 +110,7 @@ class Covid extends React.Component{
         });
   }
 
+
   componentDidMount() {
     this.makeUSApiCall()
   }
@@ -137,8 +138,6 @@ render() {
         </ul>
           <Chart/>
     </React.Fragment>
-
-
     );
   }
   
