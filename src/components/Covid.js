@@ -44,16 +44,19 @@ render() {
       <React.Fragment>
         <h1>Covid 19 Tracker</h1>
         <ul>
+        <h2>United States:</h2>
           {covids.map((covid, index) =>
-            <li key={index}>
-              <h2>United States:</h2>
+            <ul key={index}>
               <h5><em>Last Updated: {covid.dateChecked}</em></h5>
               <h4>New Positive Cases: {covid.positiveIncrease}</h4>
               <h4>New Deaths: {covid.deathIncrease}</h4>
-            </li>
+              <h4>Deaths Per Minute: {covid.deathIncrease/1440}</h4>
+            </ul>
           )}
         </ul>
     </React.Fragment>
+
+
     );
   }
   
