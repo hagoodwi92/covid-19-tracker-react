@@ -1,5 +1,25 @@
 import React from 'react';
 
+import Highcharts from 'highcharts'
+import HighchartsReact from 'highcharts-react-official'
+
+
+const options = {
+  title: {
+    text: 'My chart'
+  },
+  series: [{
+    data: [1, 2, 3]
+  }]
+}
+
+const App = () => <div>
+  <HighchartsReact
+    highcharts={Highcharts}
+    options={options}
+  />
+</div>
+
 class Covid extends React.Component{
   constructor(props) {
     super(props);
@@ -42,6 +62,7 @@ render() {
   } else {
     return (
       <React.Fragment>
+        <App />, document.getElementById('root')
         <h1>Covid 19 Tracker</h1>
         <ul>
         <h2>United States:</h2>
